@@ -17,9 +17,9 @@ export default function LoginForm({ onSubmit }) {
     
     return (
         <div>
-            <input name="username" onChange={(e) => setUsername(e.target.value)} type="text" />
-            <input name="password" onChange={(e) => setPassword(e.target.value)} type="password" />
-            <button disabled={isDisabled} onClick={onHandlerSubmit} >Submit</button>
+            <input id="username-input" type="text" onChange={(e) => setUsername(e.target.value)} />
+            <input id="password-input" type="password" onChange={(e) => setPassword(e.target.value)} />
+            <button id="login-button" disabled={isDisabled} onClick={onHandlerSubmit} >Submit</button>
         </div>
     );
 }
