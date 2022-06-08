@@ -1,10 +1,25 @@
-import LoginForm from './LoginForm';
+import React, { useEffect, useState } from "react";
 
-function App() {
-  const onSubmit = (username, password) => {
+// Use functional or class component based on your preference.
+// Make it a default export.
+
+export default function LoginForm() {
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmit = () => {
     console.log(username, password)
   }
-  return <LoginForm onSubmit={(username, password) => onSubmit(username, password)} />;
-}
+  useEffect(() => {
+    if (username.length > 0 && password.length > 0) setIsDisabled(false)
+  }, [username, password])
 
-export default App;
+  return (
+    <div>
+      <input id="username-input" type="text" onChange={(e) => setUsername(e.target.value)} />
+      <input id="password-input" type="password" onChange={(e) => setPassword(e.target.value)} />
+      <button id="login-button" disabled={isDisabled} onClick={onSubmit} >Submit</button>
+    </div>
+  );
+}
