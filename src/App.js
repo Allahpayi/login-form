@@ -9,7 +9,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
 
   const onSubmit = () => {
-    console.log(username, password)
+    
   }
   useEffect(() => {
     if (username.length > 0 && password.length > 0) setIsDisabled(false)
